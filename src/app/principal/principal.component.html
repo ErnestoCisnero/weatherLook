@@ -1,0 +1,62 @@
+<div class="conrtainer">
+   
+  <div *ngIf="errorData==1" class="alert alert-dismissible alert-primary">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h4 class="alert-heading">Upss!!!!</h4>
+    <p class="mb-0">You must have entered an invalid City Name or City Code; please try again <br><br> <a href="https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes" target="_blank">Use ISO 3166 country codes.</a> </p>
+  </div>
+
+    <div class="row">
+        <div class="col-md-11 mx-auto">
+            <h1> WeatherLook</h1>
+            <h4>Find the weather parameters of any city.</h4>
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-md-5 ml-5 mt-5">
+        <div class="card-header text-center">
+            <strong> Enter the city name and code :)</strong>
+         </div>
+      <div class="card card-body">
+        <form> 
+          <div class="card-body">
+            <input class="form-control"
+              type="text"
+              placeholder="City Name"
+              [(ngModel)]="cityData.cityName"
+              name="cityName"
+              required
+            />
+          </div>
+            <div class="card-body">
+            <input class="form-control"
+              type="text"
+              placeholder="City Code"
+              [(ngModel)]="cityData.cityCode"
+              name="cityCode"
+              required
+            />
+          </div>
+          <button class="btn btn-secondary btn-block border border-info" (click)="getweather()">
+            Get Weather  
+        </button>
+        </form>
+      </div>
+    </div>
+    <div  class="col-md-5 ml-5 mt-5">
+        <div *ngIf="weatherData" class="card card-body">
+            <p><strong>Temperature:</strong>  {{weatherData.main.temp}}</p>
+            <p><strong>Pressure:</strong>  {{weatherData.main.pressure}}</p>
+            <p><Strong>Humidity:</Strong>  {{weatherData.main.humidity}}</p>
+            <p><Strong>Coor-Lat:</Strong>  {{weatherData.coord.lat}}</p>
+            <p><Strong>Coord-Lon:</Strong>  {{weatherData.coord.lon}}</p>
+            <p><Strong>Wind Speed:</Strong>  {{weatherData.wind.speed}}</p>
+            <p><Strong>Sky clouds:</Strong>  {{weatherData.weather[0].description}}</p> 
+        </div>
+        
+
+    </div>
+  </div>
+</div>
+
+
