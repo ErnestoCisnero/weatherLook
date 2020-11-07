@@ -8,7 +8,7 @@ export class WeatherService {
 
   //api.openweathermap.org/data/2.5/weather?q=London&appid={API key}
 
-  private apiKey:string = "f92f309d69430c5f4f29f1b22e7580c4";
+  private apiKey:string = "";
    
   constructor(private http:HttpClient) { }
 
